@@ -1,6 +1,6 @@
-# 🏢 Enterprise Campus Network Lab
+**Enterprise Campus Network Lab**
 
-## 📌 Project Overview
+**Project Overview**
 
 This project demonstrates a fully redundant enterprise campus network built in Cisco Packet Tracer using enterprise-grade routing and switching technologies.
 
@@ -18,57 +18,57 @@ This lab was designed to strengthen practical networking skills related to enter
 
 ---
 
-# 🖼️ Network Topology
+**Network Topology**
 
 ![Enterprise Topology](screenshots/topology/topology.png)
 
 ---
 
-# 🏗️ Network Architecture
+**Network Architecture**
 
-## Building 1
+**Building 1**
 
-### Routers
+**Routers**
 - CORE_R1
 - EDGE_R1
 - EDGE_R2
 
-### Switches
+**Switches**
 - DIST_SW1
 - DIST_SW2
 - ACCESS_SW1
 - ACCESS_SW2
 
-### LAN Network
+**LAN Network**
 - 10.10.40.0/24
 
-### HSRP Virtual Gateway
+**HSRP Virtual Gateway**
 - 10.10.40.100
 
 ---
 
-## Building 2
+**Building 2**
 
-### Routers
+**Routers**
 - CORE_R2
 - EDGE_R3
 - EDGE_R4
 
-### Switches
+**Switches**
 - DIST_SW3
 - DIST_SW4
 - ACCESS_SW3
 - ACCESS_SW4
 
-### LAN Network
+**LAN Network**
 - 30.30.30.0/24
 
-### HSRP Virtual Gateway
+**HSRP Virtual Gateway**
 - 30.30.30.100
 
 ---
 
-# 🌐 WAN Connectivity
+**WAN Connectivity**
 
 | Connection | Network |
 |---|---|
@@ -78,7 +78,7 @@ The WAN serial connection enables routing communication between both enterprise 
 
 ---
 
-# 🧠 Technologies Implemented
+**Technologies Implemented**
 
 - Cisco IOS Configuration
 - OSPF Dynamic Routing
@@ -93,9 +93,9 @@ The WAN serial connection enables routing communication between both enterprise 
 
 ---
 
-# 📡 IP Addressing Scheme
+**IP Addressing Scheme**
 
-## Building 1 Networks
+**Building 1 Networks**
 
 | Network | Purpose |
 |---|---|
@@ -107,7 +107,7 @@ The WAN serial connection enables routing communication between both enterprise 
 
 ---
 
-## Building 2 Networks
+**Building 2 Networks**
 
 | Network | Purpose |
 |---|---|
@@ -119,11 +119,11 @@ The WAN serial connection enables routing communication between both enterprise 
 
 ---
 
-# 🔁 OSPF Configuration
+**OSPF Configuration**
 
 OSPF Area 0 is configured across all routers for dynamic route advertisement and automatic route learning.
 
-## Advertised Networks
+**Advertised Networks**
 
 - 10.10.10.0/24
 - 10.10.20.0/24
@@ -137,57 +137,60 @@ OSPF Area 0 is configured across all routers for dynamic route advertisement and
 
 ---
 
-# 🛡️ HSRP Configuration
+**HSRP Configuration**
 
 HSRP is configured to provide gateway redundancy for both buildings.
 
 ---
 
-## Building 1 HSRP
+**Building 1 HSRP**
 
 | Router | Priority | State | Virtual IP |
 |---|---|---|---|
 | EDGE_R1 | 150 | Active | 10.10.40.100 |
 | EDGE_R2 | 90 | Standby | 10.10.40.100 |
 
-### Verification
+**Verification**
 
-```bash id="x93gxa"
-EDGE_R1#show standby brief
+
+**EDGE_R1#show standby brief**
 
 Interface   Grp  Pri P State    Active          Standby         Virtual IP
 Gig0/1      1    150 P Active   local           10.10.40.2     10.10.40.100
 
 
-EDGE_R2#show standby brief
+**EDGE_R2#show standby brief**
 
 Interface   Grp  Pri P State    Active          Standby         Virtual IP
 Gig0/1      1    90  P Standby  10.10.40.1     local           10.10.40.100
 
 
-Building 2 HSRP
+**Building 2 HSRP**
 | Router  | Priority | State   | Virtual IP   |
 | ------- | -------- | ------- | ------------ |
 | EDGE_R3 | 150      | Active  | 30.30.30.100 |
 | EDGE_R4 | 90       | Standby | 30.30.30.100 |
 
-Verification
-EDGE_R3#show standby brief
+**Verification**
+**EDGE_R3#show standby brief**
 
 Interface   Grp  Pri P State    Active          Standby         Virtual IP
 Gig0/1      1    150 P Active   local           30.30.30.2     30.30.30.100
 
-EDGE_R4#show standby brief
+**EDGE_R4#show standby brief**
 
 Interface   Grp  Pri P State    Active          Standby         Virtual IP
 Gig0/1      1    90  P Standby  30.30.30.1     local           30.30.30.100
 
-Spanning Tree Configuration
+**Spanning Tree Configuration**
 
 All switches are configured with PVST.
+
 spanning-tree mode pvst
+
 This prevents Layer 2 loops while maintaining redundancy in the switching infrastructure.
-Routing Verification
+
+**Routing Verification**
 
 The routing table confirms successful OSPF route learning and WAN communication.
 
@@ -196,7 +199,7 @@ O       30.30.30.0/24 [110/66] via 50.50.50.2
 •	40.40.40.0/24 [110/66] via 50.50.50.2
 This verifies successful dynamic routing between both buildings.
 
-🧩 Floating Static Routes
+**Floating Static Routes**
 
 Floating static routes were configured with higher administrative distance values to act as backup routes if OSPF fails.
 
@@ -204,28 +207,44 @@ Example:
 ip route 10.10.40.0 255.255.255.0 10.10.20.2 120
 
 
-✅ Useful Verification Commands
+**Useful Verification Commands**
+
 OSPF Neighbors
+
 show ip ospf neighbor
+
 Routing Table
+
 show ip route
+
 HSRP Status
+
 show standby brief
-Interface Status
+
+**Interface Status**
+
 show ip interface brief
-🧪 Testing Goals
+
+**Testing Goals**
 
 The following tests can be performed to validate the topology:
 
 OSPF neighbor establishment
+
 Dynamic route learning
+
 HSRP failover testing
+
 End-to-end connectivity
+
 WAN communication verification
+
 Inter-building communication
+
 Redundant path validation
-📂 Project Structure
-Enterprise-Campus-Network-Lab/
+
+**Project Structure**
+**Enterprise-Campus-Network-Lab/
 │
 ├── configs/
 │   ├── CORE_R1.txt
@@ -254,8 +273,9 @@ Enterprise-Campus-Network-Lab/
 ├── packet-tracer/
 │   └── enterprise-campus-network.pkt
 │
-└── README.md
-📸 Recommended Screenshots
+└── README.md**
+
+**📸 Recommended Screenshots
 Full topology diagram
 OSPF neighbor relationships
 HSRP active/standby states
@@ -272,7 +292,8 @@ WAN Connectivity
 High Availability Networking
 Network Troubleshooting
 Layer 2 & Layer 3 Redundancy
-Cisco IOS Administration
-👨‍💻 Author
+Cisco IOS Administration**
+
+**Author**
 
 Ravi Kumar
