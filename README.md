@@ -20,7 +20,7 @@ This lab was designed to strengthen practical networking skills related to enter
 
 **Network Topology**
 
-![Enterprise Topology](screenshots/topology/topology.png)
+![TOPOLOGY](screenshots/topology/TOPOLOGY.png)
 
 ---
 
@@ -105,6 +105,10 @@ The WAN serial connection enables routing communication between both enterprise 
 | 10.10.40.0/24 | User LAN |
 | 10.10.40.100 | HSRP VIP |
 
+![interface-status-core-r1](screenshots/ip-address/interface-status-core-r1.png)
+
+![interface-status-edge-r1](screenshots/ip-address/interface-status-edge-r1.png)
+
 ---
 
 **Building 2 Networks**
@@ -135,6 +139,13 @@ OSPF Area 0 is configured across all routers for dynamic route advertisement and
 - 40.40.40.0/24
 - 50.50.50.0/24
 
+![ospf-neighbors-core-r1](screenshots/ospf/ospf-neighbors-core-r1.png)
+
+![ospf-neighbors-core-r2](screenshots/ospf/ospf-neighbors-core-r2.png)
+
+![routing-table-core-r1](screenshots/ospf/routing-table-core-r1.png)
+
+
 ---
 
 **HSRP Configuration**
@@ -155,14 +166,13 @@ HSRP is configured to provide gateway redundancy for both buildings.
 
 **EDGE_R1#show standby brief**
 
-Interface   Grp  Pri P State    Active          Standby         Virtual IP
-Gig0/1      1    150 P Active   local           10.10.40.2     10.10.40.100
+![hsrp-active-building1](screenshots/hsrp/hsrp-active-building1.png)
+
 
 
 **EDGE_R2#show standby brief**
 
-Interface   Grp  Pri P State    Active          Standby         Virtual IP
-Gig0/1      1    90  P Standby  10.10.40.1     local           10.10.40.100
+![hsrp-standby-building1](screenshots/hsrp/hsrp-standby-building1.png)
 
 
 **Building 2 HSRP**
@@ -178,10 +188,20 @@ Gig0/1      1    90  P Standby  10.10.40.1     local           10.10.40.100
 Interface   Grp  Pri P State    Active          Standby         Virtual IP
 Gig0/1      1    150 P Active   local           30.30.30.2     30.30.30.100
 
+![hsrp-active-building2](screenshots/hsrp/hsrp-active-building2.png)
+
+
 **EDGE_R4#show standby brief**
 
 Interface   Grp  Pri P State    Active          Standby         Virtual IP
 Gig0/1      1    90  P Standby  30.30.30.1     local           30.30.30.100
+
+![hsrp-standby-building2](screenshots/hsrp/hsrp-standby-building2.png)
+
+![hsrp-failover-building1](screenshots/hsrp/hsrp-failover-building1.png)
+
+![hsrp-recovery-preempt](screenshots/hsrp/hsrp-recovery-preempt.png)
+
 
 **Spanning Tree Configuration**
 
@@ -190,6 +210,10 @@ All switches are configured with PVST.
 spanning-tree mode pvst
 
 This prevents Layer 2 loops while maintaining redundancy in the switching infrastructure.
+
+![spanning-tree-dist-sw1](screenshots/stp/spanning-tree-dist-sw1.png)
+
+![spanning-tree-dist-sw3](screenshots/stp/spanning-tree-dist-sw3.png)
 
 **Routing Verification**
 
@@ -237,6 +261,11 @@ Dynamic route learning
 HSRP failover testing
 
 End-to-end connectivity
+
+![ping-building1-to-building2](screenshots/ping/ping-building1-to-building2.png)
+
+![ping-building2-to-building1](screenshots/ping/ping-building2-to-building1.png)
+
 
 WAN communication verification
 
