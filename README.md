@@ -200,8 +200,11 @@ Gig0/1      1    90  P Standby  30.30.30.1     local           30.30.30.100
 
 ![hsrp-failover-building1](screenshots/hsrp/hsrp-failover-building1.png)
 
+EDGE_R1 int G0/1 is shut down to verify the HSRP Failover to EDGE_R2 int G0/1.
+
 ![hsrp-recovery-preempt](screenshots/hsrp/hsrp-recovery-preempt.png)
 
+EDGE_R1 int G0/1 is again Active interface after no shutdown due to preempt feature.
 
 **Spanning Tree Configuration**
 
