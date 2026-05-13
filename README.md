@@ -172,6 +172,7 @@ Gig0/1      1    90  P Standby  10.10.40.1     local           10.10.40.100
 | EDGE_R4 | 90       | Standby | 30.30.30.100 |
 
 **Verification**
+
 **EDGE_R3#show standby brief**
 
 Interface   Grp  Pri P State    Active          Standby         Virtual IP
@@ -243,56 +244,6 @@ Inter-building communication
 
 Redundant path validation
 
-**Project Structure**
-**Enterprise-Campus-Network-Lab/
-│
-├── configs/
-│   ├── CORE_R1.txt
-│   ├── CORE_R2.txt
-│   ├── EDGE_R1.txt
-│   ├── EDGE_R2.txt
-│   ├── EDGE_R3.txt
-│   ├── EDGE_R4.txt
-│   ├── DIST_SW1.txt
-│   ├── DIST_SW2.txt
-│   ├── DIST_SW3.txt
-│   ├── DIST_SW4.txt
-│   ├── ACCESS_SW1.txt
-│   ├── ACCESS_SW2.txt
-│   ├── ACCESS_SW3.txt
-│   └── ACCESS_SW4.txt
-│
-├── screenshots/
-│   ├── topology/
-│   ├── ospf/
-│   ├── hsrp/
-│   ├── routing/
-│   ├── ping-tests/
-│   └── verification/
-│
-├── packet-tracer/
-│   └── enterprise-campus-network.pkt
-│
-└── README.md**
-
-**📸 Recommended Screenshots
-Full topology diagram
-OSPF neighbor relationships
-HSRP active/standby states
-Routing table outputs
-Successful ping tests
-WAN connectivity verification
-Interface status outputs
-🚀 Skills Demonstrated
-Enterprise Network Design
-Cisco Routing & Switching
-OSPF Deployment
-HSRP Redundancy
-WAN Connectivity
-High Availability Networking
-Network Troubleshooting
-Layer 2 & Layer 3 Redundancy
-Cisco IOS Administration**
 
 **Author**
 
