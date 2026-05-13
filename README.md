@@ -222,16 +222,13 @@ This prevents Layer 2 loops while maintaining redundancy in the switching infras
 
 The routing table confirms successful OSPF route learning and WAN communication.
 
-Example from CORE_R1:
-O       30.30.30.0/24 [110/66] via 50.50.50.2
-•	40.40.40.0/24 [110/66] via 50.50.50.2
-This verifies successful dynamic routing between both buildings.
 
 **Floating Static Routes**
 
 Floating static routes were configured with higher administrative distance values to act as backup routes if OSPF fails.
 
 Example:
+
 ip route 10.10.40.0 255.255.255.0 10.10.20.2 120
 
 
